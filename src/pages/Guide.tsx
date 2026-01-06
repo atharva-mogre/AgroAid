@@ -25,78 +25,1010 @@ const Guide = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const plants: Plant[] = [
-    { id: 1, name: "Aloe Vera", image: aloeImage, water: "Water every 2-3 weeks", light: "Bright, indirect sunlight", temp: "15-25°C", humidity: "30-50%", difficulty: "Easy", funFact: "Aloe gel has healing properties for burns and skin irritations!" },
-    { id: 2, name: "Money Plant", image: moneyImage, water: "Water when soil is dry", light: "Low to bright indirect light", temp: "18-30°C", humidity: "40-60%", difficulty: "Easy", funFact: "Known to bring good luck and prosperity in many cultures!" },
-    { id: 3, name: "Cactus", image: cactusImage, water: "Water every 3-4 weeks", light: "Full sun to bright light", temp: "20-30°C", humidity: "10-30%", difficulty: "Easy", funFact: "Cacti can live for over 200 years and store water in their stems!" },
-    { id: 4, name: "Peace Lily", image: peaceImage, water: "Keep soil moist", light: "Low to medium light", temp: "18-24°C", humidity: "50-60%", difficulty: "Medium", funFact: "NASA found peace lilies can filter harmful toxins from the air!" },
-    { id: 5, name: "Snake Plant", image: aloeImage, water: "Water every 2-6 weeks", light: "Low to bright indirect", temp: "15-27°C", humidity: "30-50%", difficulty: "Easy", funFact: "Releases oxygen at night, making it perfect for bedrooms!" },
-    { id: 6, name: "Spider Plant", image: moneyImage, water: "Water weekly", light: "Bright, indirect light", temp: "13-27°C", humidity: "40-60%", difficulty: "Easy", funFact: "Produces baby plantlets that can be propagated easily!" },
-    { id: 7, name: "Rubber Plant", image: cactusImage, water: "Water every 1-2 weeks", light: "Medium to bright indirect", temp: "16-24°C", humidity: "40-60%", difficulty: "Medium", funFact: "Its sap was once used to make rubber before synthetic alternatives!" },
-    { id: 8, name: "Pothos", image: peaceImage, water: "Water when top soil dry", light: "Low to bright indirect", temp: "18-30°C", humidity: "50-70%", difficulty: "Easy", funFact: "Can grow over 10 feet long and purifies indoor air!" },
-    { id: 9, name: "Fiddle Leaf Fig", image: aloeImage, water: "Water every 1-2 weeks", light: "Bright, indirect light", temp: "18-24°C", humidity: "30-65%", difficulty: "Hard", funFact: "Native to West African rainforests and can grow 50 feet tall!" },
-    { id: 10, name: "ZZ Plant", image: moneyImage, water: "Water every 2-3 weeks", light: "Low to bright indirect", temp: "18-26°C", humidity: "40-50%", difficulty: "Easy", funFact: "Can survive months without water due to its rhizome roots!" },
-    { id: 11, name: "Boston Fern", image: cactusImage, water: "Keep consistently moist", light: "Indirect light, no direct sun", temp: "16-24°C", humidity: "50-80%", difficulty: "Medium", funFact: "Excellent air humidifier and removes formaldehyde from air!" },
-    { id: 12, name: "Jade Plant", image: peaceImage, water: "Water every 2-3 weeks", light: "Bright light, some direct sun", temp: "18-24°C", humidity: "30-50%", difficulty: "Easy", funFact: "Symbolizes good luck and can live for over 100 years!" },
-    { id: 13, name: "Monstera Deliciosa", image: aloeImage, water: "Water every 1-2 weeks", light: "Bright, indirect light", temp: "18-30°C", humidity: "60-80%", difficulty: "Medium", funFact: "Known as Swiss Cheese Plant due to its unique leaf holes!" },
-    { id: 14, name: "Philodendron", image: moneyImage, water: "Water when top inch dry", light: "Medium indirect light", temp: "18-27°C", humidity: "40-60%", difficulty: "Easy", funFact: "There are over 400 species of philodendron in the world!" },
-    { id: 15, name: "Calathea", image: cactusImage, water: "Keep soil evenly moist", light: "Low to medium indirect", temp: "18-24°C", humidity: "50-80%", difficulty: "Hard", funFact: "Its leaves fold up at night like praying hands!" },
-    { id: 16, name: "Dracaena", image: peaceImage, water: "Water every 2-3 weeks", light: "Low to bright indirect", temp: "18-27°C", humidity: "40-50%", difficulty: "Easy", funFact: "Some species can live for hundreds of years in the wild!" },
-    { id: 17, name: "Croton", image: aloeImage, water: "Keep soil moist", light: "Bright, direct light", temp: "16-27°C", humidity: "40-80%", difficulty: "Medium", funFact: "Leaves change color based on light exposure and age!" },
-    { id: 18, name: "English Ivy", image: moneyImage, water: "Water when soil slightly dry", light: "Medium to bright indirect", temp: "10-21°C", humidity: "40-60%", difficulty: "Medium", funFact: "Can reduce airborne mold by up to 78% in homes!" },
-    { id: 19, name: "Bird of Paradise", image: cactusImage, water: "Water every 1-2 weeks", light: "Bright, direct light", temp: "18-30°C", humidity: "50-70%", difficulty: "Medium", funFact: "Named after its stunning bird-like orange and blue flowers!" },
-    { id: 20, name: "Chinese Evergreen", image: peaceImage, water: "Water when top inch dry", light: "Low to medium light", temp: "16-24°C", humidity: "40-60%", difficulty: "Easy", funFact: "Has been grown as a luck-bringing ornamental plant for centuries!" },
-    { id: 21, name: "Anthurium", image: aloeImage, water: "Water when top inch dry", light: "Bright, indirect light", temp: "18-27°C", humidity: "60-80%", difficulty: "Medium", funFact: "Its heart-shaped 'flowers' are actually modified leaves called spathes!" },
-    { id: 22, name: "Orchid", image: moneyImage, water: "Water weekly, let dry between", light: "Bright, indirect light", temp: "16-24°C", humidity: "50-70%", difficulty: "Hard", funFact: "Orchids can live for over 100 years with proper care!" },
-    { id: 23, name: "African Violet", image: cactusImage, water: "Water from bottom when dry", light: "Bright, indirect light", temp: "18-24°C", humidity: "50-60%", difficulty: "Medium", funFact: "Can bloom continuously for 9 months with proper care!" },
-    { id: 24, name: "Parlor Palm", image: peaceImage, water: "Water when top inch dry", light: "Low to medium indirect", temp: "18-27°C", humidity: "40-60%", difficulty: "Easy", funFact: "Was a favorite plant in Victorian parlors, hence the name!" },
-    { id: 25, name: "Dieffenbachia", image: aloeImage, water: "Water when top inch dry", light: "Medium to bright indirect", temp: "16-27°C", humidity: "40-60%", difficulty: "Easy", funFact: "Also called Dumb Cane because its sap can cause temporary speechlessness!" },
-    { id: 26, name: "Bromeliad", image: moneyImage, water: "Fill central cup with water", light: "Bright, indirect light", temp: "18-27°C", humidity: "50-70%", difficulty: "Medium", funFact: "Pineapples are actually a type of bromeliad!" },
-    { id: 27, name: "Cast Iron Plant", image: cactusImage, water: "Water every 2-3 weeks", light: "Low light tolerant", temp: "7-29°C", humidity: "30-50%", difficulty: "Easy", funFact: "Named for its ability to survive neglect and poor conditions!" },
-    { id: 28, name: "Prayer Plant", image: peaceImage, water: "Keep soil moist", light: "Low to medium indirect", temp: "18-27°C", humidity: "50-60%", difficulty: "Medium", funFact: "Leaves fold upward at night as if in prayer!" },
-    { id: 29, name: "String of Pearls", image: aloeImage, water: "Water every 2 weeks", light: "Bright, indirect light", temp: "18-24°C", humidity: "40-50%", difficulty: "Medium", funFact: "The pearl-like leaves store water like tiny water balloons!" },
-    { id: 30, name: "Peperomia", image: moneyImage, water: "Water when soil is dry", light: "Medium to bright indirect", temp: "18-24°C", humidity: "40-50%", difficulty: "Easy", funFact: "There are over 1,000 species with incredibly diverse leaf shapes!" },
-    { id: 31, name: "Nerve Plant", image: cactusImage, water: "Keep soil consistently moist", light: "Low to medium indirect", temp: "16-27°C", humidity: "50-80%", difficulty: "Medium", funFact: "The intricate vein patterns look like a nervous system!" },
-    { id: 32, name: "Hoya", image: peaceImage, water: "Water when dry", light: "Bright, indirect light", temp: "16-29°C", humidity: "40-60%", difficulty: "Easy", funFact: "Also called Wax Plant for its waxy, fragrant star-shaped flowers!" },
-    { id: 33, name: "Areca Palm", image: aloeImage, water: "Water when top inch dry", light: "Bright, indirect light", temp: "18-27°C", humidity: "50-60%", difficulty: "Medium", funFact: "One of the best air-purifying plants according to NASA!" },
-    { id: 34, name: "Schefflera", image: moneyImage, water: "Water when top inch dry", light: "Medium to bright indirect", temp: "16-24°C", humidity: "40-60%", difficulty: "Easy", funFact: "Known as Umbrella Tree for its umbrella-shaped leaf arrangement!" },
-    { id: 35, name: "Succulents Mix", image: cactusImage, water: "Water every 2-3 weeks", light: "Bright, direct light", temp: "18-27°C", humidity: "30-50%", difficulty: "Easy", funFact: "Succulents can propagate from a single fallen leaf!" },
-    { id: 36, name: "Bamboo Palm", image: peaceImage, water: "Keep soil moist", light: "Low to medium indirect", temp: "18-27°C", humidity: "50-70%", difficulty: "Medium", funFact: "Excellent at removing benzene and trichloroethylene from air!" },
-    { id: 37, name: "Majesty Palm", image: aloeImage, water: "Keep soil consistently moist", light: "Bright, indirect light", temp: "18-27°C", humidity: "50-60%", difficulty: "Hard", funFact: "Can grow up to 10 feet tall indoors with proper care!" },
-    { id: 38, name: "Yucca", image: moneyImage, water: "Water every 2-3 weeks", light: "Bright, direct light", temp: "16-27°C", humidity: "30-50%", difficulty: "Easy", funFact: "Yucca flowers are the state flower of New Mexico!" },
-    { id: 39, name: "Ponytail Palm", image: cactusImage, water: "Water every 2-3 weeks", light: "Bright light", temp: "18-27°C", humidity: "30-50%", difficulty: "Easy", funFact: "Not actually a palm - it's related to agave plants!" },
-    { id: 40, name: "Norfolk Island Pine", image: peaceImage, water: "Keep soil slightly moist", light: "Bright, indirect light", temp: "13-24°C", humidity: "50-60%", difficulty: "Medium", funFact: "Often used as a living Christmas tree that can last for decades!" },
-    { id: 41, name: "Lipstick Plant", image: aloeImage, water: "Water when top inch dry", light: "Bright, indirect light", temp: "18-27°C", humidity: "50-70%", difficulty: "Medium", funFact: "Gets its name from red tubular flowers that look like lipstick!" },
-    { id: 42, name: "Polka Dot Plant", image: moneyImage, water: "Keep soil moist", light: "Bright, indirect light", temp: "18-24°C", humidity: "50-60%", difficulty: "Easy", funFact: "Leaves come in pink, red, and white spotted patterns!" },
-    { id: 43, name: "Crown of Thorns", image: cactusImage, water: "Water when dry", light: "Bright, direct light", temp: "18-27°C", humidity: "30-50%", difficulty: "Easy", funFact: "Can bloom almost year-round in the right conditions!" },
-    { id: 44, name: "Kalanchoe", image: peaceImage, water: "Water when soil dry", light: "Bright light", temp: "15-27°C", humidity: "30-50%", difficulty: "Easy", funFact: "Produces clusters of colorful flowers for weeks at a time!" },
-    { id: 45, name: "Rex Begonia", image: aloeImage, water: "Keep soil slightly moist", light: "Medium indirect light", temp: "16-24°C", humidity: "50-70%", difficulty: "Medium", funFact: "Known as 'Painted-Leaf Begonia' for its stunning foliage patterns!" },
-    { id: 46, name: "Wandering Jew", image: moneyImage, water: "Keep soil moist", light: "Bright, indirect light", temp: "18-27°C", humidity: "40-60%", difficulty: "Easy", funFact: "Can grow several feet in a single season under good conditions!" },
-    { id: 47, name: "Elephant Ear", image: cactusImage, water: "Keep soil consistently moist", light: "Bright, indirect light", temp: "18-27°C", humidity: "60-80%", difficulty: "Medium", funFact: "Leaves can grow over 3 feet long, resembling elephant ears!" },
-    { id: 48, name: "Swiss Cheese Vine", image: peaceImage, water: "Water when top dry", light: "Bright, indirect light", temp: "18-27°C", humidity: "50-70%", difficulty: "Easy", funFact: "Smaller cousin of Monstera with adorable fenestrated leaves!" },
-    { id: 49, name: "String of Hearts", image: aloeImage, water: "Water every 2-3 weeks", light: "Bright, indirect light", temp: "18-24°C", humidity: "40-50%", difficulty: "Easy", funFact: "Heart-shaped leaves make it a popular Valentine's gift!" },
-    { id: 50, name: "Tradescantia", image: moneyImage, water: "Keep soil moist", light: "Medium to bright indirect", temp: "16-24°C", humidity: "40-60%", difficulty: "Easy", funFact: "Its colorful leaves can be purple, pink, green, or striped!" },
-    { id: 51, name: "Bird's Nest Fern", image: cactusImage, water: "Keep soil moist", light: "Low to medium indirect", temp: "16-24°C", humidity: "50-70%", difficulty: "Medium", funFact: "New fronds unfurl from a central rosette like a bird's nest!" },
-    { id: 52, name: "Staghorn Fern", image: peaceImage, water: "Soak weekly", light: "Bright, indirect light", temp: "16-27°C", humidity: "50-70%", difficulty: "Medium", funFact: "Grows on trees in the wild and can be mounted on walls!" },
-    { id: 53, name: "Maidenhair Fern", image: aloeImage, water: "Keep consistently moist", light: "Low to medium indirect", temp: "16-24°C", humidity: "60-80%", difficulty: "Hard", funFact: "Its delicate fronds were once used to make hair tonics!" },
-    { id: 54, name: "Asparagus Fern", image: moneyImage, water: "Keep soil moist", light: "Bright, indirect light", temp: "13-24°C", humidity: "40-60%", difficulty: "Medium", funFact: "Not actually a fern - it's related to edible asparagus!" },
-    { id: 55, name: "Sago Palm", image: cactusImage, water: "Water when top dry", light: "Bright light", temp: "18-27°C", humidity: "40-50%", difficulty: "Medium", funFact: "Living fossils that have existed for over 200 million years!" },
-    { id: 56, name: "Ti Plant", image: peaceImage, water: "Keep soil moist", light: "Bright, indirect light", temp: "18-27°C", humidity: "40-60%", difficulty: "Medium", funFact: "Hawaiians believe it brings good luck and wards off evil!" },
-    { id: 57, name: "Coffee Plant", image: aloeImage, water: "Keep soil moist", light: "Bright, indirect light", temp: "16-24°C", humidity: "50-70%", difficulty: "Medium", funFact: "Can produce actual coffee cherries after 3-5 years!" },
-    { id: 58, name: "Lemon Tree", image: moneyImage, water: "Water when top dry", light: "Full sun", temp: "13-27°C", humidity: "50-60%", difficulty: "Medium", funFact: "Dwarf varieties can fruit indoors and live for 50+ years!" },
-    { id: 59, name: "Lavender", image: cactusImage, water: "Water when soil dry", light: "Full sun", temp: "12-24°C", humidity: "40-50%", difficulty: "Medium", funFact: "Its scent is proven to reduce stress and improve sleep!" },
-    { id: 60, name: "Rosemary", image: peaceImage, water: "Water when dry", light: "Full sun", temp: "10-24°C", humidity: "40-50%", difficulty: "Medium", funFact: "Ancient Greeks wore it to improve memory and concentration!" },
+    {
+      id: 1,
+      name: "Aloe Vera",
+      image: aloeImage,
+      water: "Water every 2-3 weeks",
+      light: "Bright, indirect sunlight",
+      temp: "15-25°C",
+      humidity: "30-50%",
+      difficulty: "Easy",
+      funFact: "Aloe gel has healing properties for burns and skin irritations!",
+    },
+    {
+      id: 2,
+      name: "Money Plant",
+      image: moneyImage,
+      water: "Water when soil is dry",
+      light: "Low to bright indirect light",
+      temp: "18-30°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Known to bring good luck and prosperity in many cultures!",
+    },
+    {
+      id: 3,
+      name: "Cactus",
+      image: cactusImage,
+      water: "Water every 3-4 weeks",
+      light: "Full sun to bright light",
+      temp: "20-30°C",
+      humidity: "10-30%",
+      difficulty: "Easy",
+      funFact: "Cacti can live for over 200 years and store water in their stems!",
+    },
+    {
+      id: 4,
+      name: "Peace Lily",
+      image: peaceImage,
+      water: "Keep soil moist",
+      light: "Low to medium light",
+      temp: "18-24°C",
+      humidity: "50-60%",
+      difficulty: "Medium",
+      funFact: "NASA found peace lilies can filter harmful toxins from the air!",
+    },
+    {
+      id: 5,
+      name: "Snake Plant",
+      image: aloeImage,
+      water: "Water every 2-6 weeks",
+      light: "Low to bright indirect",
+      temp: "15-27°C",
+      humidity: "30-50%",
+      difficulty: "Easy",
+      funFact: "Releases oxygen at night, making it perfect for bedrooms!",
+    },
+    {
+      id: 6,
+      name: "Spider Plant",
+      image: moneyImage,
+      water: "Water weekly",
+      light: "Bright, indirect light",
+      temp: "13-27°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Produces baby plantlets that can be propagated easily!",
+    },
+    {
+      id: 7,
+      name: "Rubber Plant",
+      image: cactusImage,
+      water: "Water every 1-2 weeks",
+      light: "Medium to bright indirect",
+      temp: "16-24°C",
+      humidity: "40-60%",
+      difficulty: "Medium",
+      funFact: "Its sap was once used to make rubber before synthetic alternatives!",
+    },
+    {
+      id: 8,
+      name: "Pothos",
+      image: peaceImage,
+      water: "Water when top soil dry",
+      light: "Low to bright indirect",
+      temp: "18-30°C",
+      humidity: "50-70%",
+      difficulty: "Easy",
+      funFact: "Can grow over 10 feet long and purifies indoor air!",
+    },
+    {
+      id: 9,
+      name: "Fiddle Leaf Fig",
+      image: aloeImage,
+      water: "Water every 1-2 weeks",
+      light: "Bright, indirect light",
+      temp: "18-24°C",
+      humidity: "30-65%",
+      difficulty: "Hard",
+      funFact: "Native to West African rainforests and can grow 50 feet tall!",
+    },
+    {
+      id: 10,
+      name: "ZZ Plant",
+      image: moneyImage,
+      water: "Water every 2-3 weeks",
+      light: "Low to bright indirect",
+      temp: "18-26°C",
+      humidity: "40-50%",
+      difficulty: "Easy",
+      funFact: "Can survive months without water due to its rhizome roots!",
+    },
+    {
+      id: 11,
+      name: "Boston Fern",
+      image: cactusImage,
+      water: "Keep consistently moist",
+      light: "Indirect light, no direct sun",
+      temp: "16-24°C",
+      humidity: "50-80%",
+      difficulty: "Medium",
+      funFact: "Excellent air humidifier and removes formaldehyde from air!",
+    },
+    {
+      id: 12,
+      name: "Jade Plant",
+      image: peaceImage,
+      water: "Water every 2-3 weeks",
+      light: "Bright light, some direct sun",
+      temp: "18-24°C",
+      humidity: "30-50%",
+      difficulty: "Easy",
+      funFact: "Symbolizes good luck and can live for over 100 years!",
+    },
+    {
+      id: 13,
+      name: "Monstera Deliciosa",
+      image: aloeImage,
+      water: "Water every 1-2 weeks",
+      light: "Bright, indirect light",
+      temp: "18-30°C",
+      humidity: "60-80%",
+      difficulty: "Medium",
+      funFact: "Known as Swiss Cheese Plant due to its unique leaf holes!",
+    },
+    {
+      id: 14,
+      name: "Philodendron",
+      image: moneyImage,
+      water: "Water when top inch dry",
+      light: "Medium indirect light",
+      temp: "18-27°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "There are over 400 species of philodendron in the world!",
+    },
+    {
+      id: 15,
+      name: "Calathea",
+      image: cactusImage,
+      water: "Keep soil evenly moist",
+      light: "Low to medium indirect",
+      temp: "18-24°C",
+      humidity: "50-80%",
+      difficulty: "Hard",
+      funFact: "Its leaves fold up at night like praying hands!",
+    },
+    {
+      id: 16,
+      name: "Dracaena",
+      image: peaceImage,
+      water: "Water every 2-3 weeks",
+      light: "Low to bright indirect",
+      temp: "18-27°C",
+      humidity: "40-50%",
+      difficulty: "Easy",
+      funFact: "Some species can live for hundreds of years in the wild!",
+    },
+    {
+      id: 17,
+      name: "Croton",
+      image: aloeImage,
+      water: "Keep soil moist",
+      light: "Bright, direct light",
+      temp: "16-27°C",
+      humidity: "40-80%",
+      difficulty: "Medium",
+      funFact: "Leaves change color based on light exposure and age!",
+    },
+    {
+      id: 18,
+      name: "English Ivy",
+      image: moneyImage,
+      water: "Water when soil slightly dry",
+      light: "Medium to bright indirect",
+      temp: "10-21°C",
+      humidity: "40-60%",
+      difficulty: "Medium",
+      funFact: "Can reduce airborne mold by up to 78% in homes!",
+    },
+    {
+      id: 19,
+      name: "Bird of Paradise",
+      image: cactusImage,
+      water: "Water every 1-2 weeks",
+      light: "Bright, direct light",
+      temp: "18-30°C",
+      humidity: "50-70%",
+      difficulty: "Medium",
+      funFact: "Named after its stunning bird-like orange and blue flowers!",
+    },
+    {
+      id: 20,
+      name: "Chinese Evergreen",
+      image: peaceImage,
+      water: "Water when top inch dry",
+      light: "Low to medium light",
+      temp: "16-24°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Has been grown as a luck-bringing ornamental plant for centuries!",
+    },
+    {
+      id: 21,
+      name: "Anthurium",
+      image: aloeImage,
+      water: "Water when top inch dry",
+      light: "Bright, indirect light",
+      temp: "18-27°C",
+      humidity: "60-80%",
+      difficulty: "Medium",
+      funFact: "Its heart-shaped 'flowers' are actually modified leaves called spathes!",
+    },
+    {
+      id: 22,
+      name: "Orchid",
+      image: moneyImage,
+      water: "Water weekly, let dry between",
+      light: "Bright, indirect light",
+      temp: "16-24°C",
+      humidity: "50-70%",
+      difficulty: "Hard",
+      funFact: "Orchids can live for over 100 years with proper care!",
+    },
+    {
+      id: 23,
+      name: "African Violet",
+      image: cactusImage,
+      water: "Water from bottom when dry",
+      light: "Bright, indirect light",
+      temp: "18-24°C",
+      humidity: "50-60%",
+      difficulty: "Medium",
+      funFact: "Can bloom continuously for 9 months with proper care!",
+    },
+    {
+      id: 24,
+      name: "Parlor Palm",
+      image: peaceImage,
+      water: "Water when top inch dry",
+      light: "Low to medium indirect",
+      temp: "18-27°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Was a favorite plant in Victorian parlors, hence the name!",
+    },
+    {
+      id: 25,
+      name: "Dieffenbachia",
+      image: aloeImage,
+      water: "Water when top inch dry",
+      light: "Medium to bright indirect",
+      temp: "16-27°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Also called Dumb Cane because its sap can cause temporary speechlessness!",
+    },
+    {
+      id: 26,
+      name: "Bromeliad",
+      image: moneyImage,
+      water: "Fill central cup with water",
+      light: "Bright, indirect light",
+      temp: "18-27°C",
+      humidity: "50-70%",
+      difficulty: "Medium",
+      funFact: "Pineapples are actually a type of bromeliad!",
+    },
+    {
+      id: 27,
+      name: "Cast Iron Plant",
+      image: cactusImage,
+      water: "Water every 2-3 weeks",
+      light: "Low light tolerant",
+      temp: "7-29°C",
+      humidity: "30-50%",
+      difficulty: "Easy",
+      funFact: "Named for its ability to survive neglect and poor conditions!",
+    },
+    {
+      id: 28,
+      name: "Prayer Plant",
+      image: peaceImage,
+      water: "Keep soil moist",
+      light: "Low to medium indirect",
+      temp: "18-27°C",
+      humidity: "50-60%",
+      difficulty: "Medium",
+      funFact: "Leaves fold upward at night as if in prayer!",
+    },
+    {
+      id: 29,
+      name: "String of Pearls",
+      image: aloeImage,
+      water: "Water every 2 weeks",
+      light: "Bright, indirect light",
+      temp: "18-24°C",
+      humidity: "40-50%",
+      difficulty: "Medium",
+      funFact: "The pearl-like leaves store water like tiny water balloons!",
+    },
+    {
+      id: 30,
+      name: "Peperomia",
+      image: moneyImage,
+      water: "Water when soil is dry",
+      light: "Medium to bright indirect",
+      temp: "18-24°C",
+      humidity: "40-50%",
+      difficulty: "Easy",
+      funFact: "There are over 1,000 species with incredibly diverse leaf shapes!",
+    },
+    {
+      id: 31,
+      name: "Nerve Plant",
+      image: cactusImage,
+      water: "Keep soil consistently moist",
+      light: "Low to medium indirect",
+      temp: "16-27°C",
+      humidity: "50-80%",
+      difficulty: "Medium",
+      funFact: "The intricate vein patterns look like a nervous system!",
+    },
+    {
+      id: 32,
+      name: "Hoya",
+      image: peaceImage,
+      water: "Water when dry",
+      light: "Bright, indirect light",
+      temp: "16-29°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Also called Wax Plant for its waxy, fragrant star-shaped flowers!",
+    },
+    {
+      id: 33,
+      name: "Areca Palm",
+      image: aloeImage,
+      water: "Water when top inch dry",
+      light: "Bright, indirect light",
+      temp: "18-27°C",
+      humidity: "50-60%",
+      difficulty: "Medium",
+      funFact: "One of the best air-purifying plants according to NASA!",
+    },
+    {
+      id: 34,
+      name: "Schefflera",
+      image: moneyImage,
+      water: "Water when top inch dry",
+      light: "Medium to bright indirect",
+      temp: "16-24°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Known as Umbrella Tree for its umbrella-shaped leaf arrangement!",
+    },
+    {
+      id: 35,
+      name: "Succulents Mix",
+      image: cactusImage,
+      water: "Water every 2-3 weeks",
+      light: "Bright, direct light",
+      temp: "18-27°C",
+      humidity: "30-50%",
+      difficulty: "Easy",
+      funFact: "Succulents can propagate from a single fallen leaf!",
+    },
+    {
+      id: 36,
+      name: "Bamboo Palm",
+      image: peaceImage,
+      water: "Keep soil moist",
+      light: "Low to medium indirect",
+      temp: "18-27°C",
+      humidity: "50-70%",
+      difficulty: "Medium",
+      funFact: "Excellent at removing benzene and trichloroethylene from air!",
+    },
+    {
+      id: 37,
+      name: "Majesty Palm",
+      image: aloeImage,
+      water: "Keep soil consistently moist",
+      light: "Bright, indirect light",
+      temp: "18-27°C",
+      humidity: "50-60%",
+      difficulty: "Hard",
+      funFact: "Can grow up to 10 feet tall indoors with proper care!",
+    },
+    {
+      id: 38,
+      name: "Yucca",
+      image: moneyImage,
+      water: "Water every 2-3 weeks",
+      light: "Bright, direct light",
+      temp: "16-27°C",
+      humidity: "30-50%",
+      difficulty: "Easy",
+      funFact: "Yucca flowers are the state flower of New Mexico!",
+    },
+    {
+      id: 39,
+      name: "Ponytail Palm",
+      image: cactusImage,
+      water: "Water every 2-3 weeks",
+      light: "Bright light",
+      temp: "18-27°C",
+      humidity: "30-50%",
+      difficulty: "Easy",
+      funFact: "Not actually a palm - it's related to agave plants!",
+    },
+    {
+      id: 40,
+      name: "Norfolk Island Pine",
+      image: peaceImage,
+      water: "Keep soil slightly moist",
+      light: "Bright, indirect light",
+      temp: "13-24°C",
+      humidity: "50-60%",
+      difficulty: "Medium",
+      funFact: "Often used as a living Christmas tree that can last for decades!",
+    },
+    {
+      id: 41,
+      name: "Lipstick Plant",
+      image: aloeImage,
+      water: "Water when top inch dry",
+      light: "Bright, indirect light",
+      temp: "18-27°C",
+      humidity: "50-70%",
+      difficulty: "Medium",
+      funFact: "Gets its name from red tubular flowers that look like lipstick!",
+    },
+    {
+      id: 42,
+      name: "Polka Dot Plant",
+      image: moneyImage,
+      water: "Keep soil moist",
+      light: "Bright, indirect light",
+      temp: "18-24°C",
+      humidity: "50-60%",
+      difficulty: "Easy",
+      funFact: "Leaves come in pink, red, and white spotted patterns!",
+    },
+    {
+      id: 43,
+      name: "Crown of Thorns",
+      image: cactusImage,
+      water: "Water when dry",
+      light: "Bright, direct light",
+      temp: "18-27°C",
+      humidity: "30-50%",
+      difficulty: "Easy",
+      funFact: "Can bloom almost year-round in the right conditions!",
+    },
+    {
+      id: 44,
+      name: "Kalanchoe",
+      image: peaceImage,
+      water: "Water when soil dry",
+      light: "Bright light",
+      temp: "15-27°C",
+      humidity: "30-50%",
+      difficulty: "Easy",
+      funFact: "Produces clusters of colorful flowers for weeks at a time!",
+    },
+    {
+      id: 45,
+      name: "Rex Begonia",
+      image: aloeImage,
+      water: "Keep soil slightly moist",
+      light: "Medium indirect light",
+      temp: "16-24°C",
+      humidity: "50-70%",
+      difficulty: "Medium",
+      funFact: "Known as 'Painted-Leaf Begonia' for its stunning foliage patterns!",
+    },
+    {
+      id: 46,
+      name: "Wandering Jew",
+      image: moneyImage,
+      water: "Keep soil moist",
+      light: "Bright, indirect light",
+      temp: "18-27°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Can grow several feet in a single season under good conditions!",
+    },
+    {
+      id: 47,
+      name: "Elephant Ear",
+      image: cactusImage,
+      water: "Keep soil consistently moist",
+      light: "Bright, indirect light",
+      temp: "18-27°C",
+      humidity: "60-80%",
+      difficulty: "Medium",
+      funFact: "Leaves can grow over 3 feet long, resembling elephant ears!",
+    },
+    {
+      id: 48,
+      name: "Swiss Cheese Vine",
+      image: peaceImage,
+      water: "Water when top dry",
+      light: "Bright, indirect light",
+      temp: "18-27°C",
+      humidity: "50-70%",
+      difficulty: "Easy",
+      funFact: "Smaller cousin of Monstera with adorable fenestrated leaves!",
+    },
+    {
+      id: 49,
+      name: "String of Hearts",
+      image: aloeImage,
+      water: "Water every 2-3 weeks",
+      light: "Bright, indirect light",
+      temp: "18-24°C",
+      humidity: "40-50%",
+      difficulty: "Easy",
+      funFact: "Heart-shaped leaves make it a popular Valentine's gift!",
+    },
+    {
+      id: 50,
+      name: "Tradescantia",
+      image: moneyImage,
+      water: "Keep soil moist",
+      light: "Medium to bright indirect",
+      temp: "16-24°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Its colorful leaves can be purple, pink, green, or striped!",
+    },
+    {
+      id: 51,
+      name: "Bird's Nest Fern",
+      image: cactusImage,
+      water: "Keep soil moist",
+      light: "Low to medium indirect",
+      temp: "16-24°C",
+      humidity: "50-70%",
+      difficulty: "Medium",
+      funFact: "New fronds unfurl from a central rosette like a bird's nest!",
+    },
+    {
+      id: 52,
+      name: "Staghorn Fern",
+      image: peaceImage,
+      water: "Soak weekly",
+      light: "Bright, indirect light",
+      temp: "16-27°C",
+      humidity: "50-70%",
+      difficulty: "Medium",
+      funFact: "Grows on trees in the wild and can be mounted on walls!",
+    },
+    {
+      id: 53,
+      name: "Maidenhair Fern",
+      image: aloeImage,
+      water: "Keep consistently moist",
+      light: "Low to medium indirect",
+      temp: "16-24°C",
+      humidity: "60-80%",
+      difficulty: "Hard",
+      funFact: "Its delicate fronds were once used to make hair tonics!",
+    },
+    {
+      id: 54,
+      name: "Asparagus Fern",
+      image: moneyImage,
+      water: "Keep soil moist",
+      light: "Bright, indirect light",
+      temp: "13-24°C",
+      humidity: "40-60%",
+      difficulty: "Medium",
+      funFact: "Not actually a fern - it's related to edible asparagus!",
+    },
+    {
+      id: 55,
+      name: "Sago Palm",
+      image: cactusImage,
+      water: "Water when top dry",
+      light: "Bright light",
+      temp: "18-27°C",
+      humidity: "40-50%",
+      difficulty: "Medium",
+      funFact: "Living fossils that have existed for over 200 million years!",
+    },
+    {
+      id: 56,
+      name: "Ti Plant",
+      image: peaceImage,
+      water: "Keep soil moist",
+      light: "Bright, indirect light",
+      temp: "18-27°C",
+      humidity: "40-60%",
+      difficulty: "Medium",
+      funFact: "Hawaiians believe it brings good luck and wards off evil!",
+    },
+    {
+      id: 57,
+      name: "Coffee Plant",
+      image: aloeImage,
+      water: "Keep soil moist",
+      light: "Bright, indirect light",
+      temp: "16-24°C",
+      humidity: "50-70%",
+      difficulty: "Medium",
+      funFact: "Can produce actual coffee cherries after 3-5 years!",
+    },
+    {
+      id: 58,
+      name: "Lemon Tree",
+      image: moneyImage,
+      water: "Water when top dry",
+      light: "Full sun",
+      temp: "13-27°C",
+      humidity: "50-60%",
+      difficulty: "Medium",
+      funFact: "Dwarf varieties can fruit indoors and live for 50+ years!",
+    },
+    {
+      id: 59,
+      name: "Lavender",
+      image: cactusImage,
+      water: "Water when soil dry",
+      light: "Full sun",
+      temp: "12-24°C",
+      humidity: "40-50%",
+      difficulty: "Medium",
+      funFact: "Its scent is proven to reduce stress and improve sleep!",
+    },
+    {
+      id: 60,
+      name: "Rosemary",
+      image: peaceImage,
+      water: "Water when dry",
+      light: "Full sun",
+      temp: "10-24°C",
+      humidity: "40-50%",
+      difficulty: "Medium",
+      funFact: "Ancient Greeks wore it to improve memory and concentration!",
+    },
+    {
+      id: 61,
+      name: "Areca Palm",
+      image: "/plants/areca-palm.jpg",
+      water: "Water when top soil dries",
+      light: "Bright, indirect light",
+      temp: "18-30°C",
+      humidity: "50-60%",
+      difficulty: "Medium",
+      funFact: "One of the best indoor plants for improving air quality.",
+    },
+    {
+      id: 62,
+      name: "Monstera Adansonii",
+      image: "/plants/monstera-adansonii.jpg",
+      water: "Water when top soil is dry",
+      light: "Bright, indirect light",
+      temp: "18-27°C",
+      humidity: "60-70%",
+      difficulty: "Medium",
+      funFact: "Known as the Swiss cheese vine due to its holey leaves.",
+    },
+    {
+      id: 63,
+      name: "Philodendron Brasil",
+      image: "/plants/philodendron-brasil.jpg",
+      water: "Water when soil partially dries",
+      light: "Medium to bright indirect",
+      temp: "18-30°C",
+      humidity: "50-60%",
+      difficulty: "Easy",
+      funFact: "Has natural yellow-green variegation.",
+    },
+    {
+      id: 64,
+      name: "Parlor Palm",
+      image: "/plants/parlor-palm.jpg",
+      water: "Water when top soil dries",
+      light: "Low to medium indirect",
+      temp: "18-27°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Was a favorite houseplant during the Victorian era.",
+    },
+    {
+      id: 65,
+      name: "Bird of Paradise",
+      image: "/plants/bird-of-paradise.jpg",
+      water: "Water weekly",
+      light: "Bright light, some direct sun",
+      temp: "18-30°C",
+      humidity: "50-70%",
+      difficulty: "Hard",
+      funFact: "Can take years to flower indoors.",
+    },
+    {
+      id: 66,
+      name: "Kentia Palm",
+      image: "/plants/kentia-palm.jpg",
+      water: "Water every 1-2 weeks",
+      light: "Low to bright indirect",
+      temp: "18-27°C",
+      humidity: "40-60%",
+      difficulty: "Medium",
+      funFact: "Extremely tolerant of low light.",
+    },
+    {
+      id: 67,
+      name: "Ficus Elastica Tineke",
+      image: "/plants/ficus-tineke.jpg",
+      water: "Water every 1-2 weeks",
+      light: "Bright indirect light",
+      temp: "18-25°C",
+      humidity: "40-60%",
+      difficulty: "Medium",
+      funFact: "Has creamy white and green variegated leaves.",
+    },
+    {
+      id: 68,
+      name: "Polka Dot Plant",
+      image: "/plants/polka-dot.jpg",
+      water: "Keep soil slightly moist",
+      light: "Bright indirect light",
+      temp: "18-26°C",
+      humidity: "50-60%",
+      difficulty: "Medium",
+      funFact: "Leaf colors fade in low light.",
+    },
+    {
+      id: 69,
+      name: "Fittonia",
+      image: "/plants/fittonia.jpg",
+      water: "Keep soil consistently moist",
+      light: "Low to medium indirect",
+      temp: "18-26°C",
+      humidity: "60-80%",
+      difficulty: "Hard",
+      funFact: "Dramatically wilts when thirsty but recovers fast.",
+    },
+    {
+      id: 70,
+      name: "Oxalis Purple Shamrock",
+      image: "/plants/oxalis.jpg",
+      water: "Water when soil dries slightly",
+      light: "Bright indirect light",
+      temp: "15-25°C",
+      humidity: "40-60%",
+      difficulty: "Medium",
+      funFact: "Leaves open and close based on light.",
+    },
+    {
+      id: 71,
+      name: "Dieffenbachia",
+      image: "/plants/dieffenbachia.jpg",
+      water: "Water every 1-2 weeks",
+      light: "Medium indirect light",
+      temp: "18-27°C",
+      humidity: "50-60%",
+      difficulty: "Medium",
+      funFact: "Also known as Dumb Cane due to toxic sap.",
+    },
+    {
+      id: 72,
+      name: "Pilea Peperomioides",
+      image: "/plants/pilea.jpg",
+      water: "Water when top soil dries",
+      light: "Bright indirect light",
+      temp: "18-26°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Often called the Chinese Money Plant.",
+    },
+    {
+      id: 73,
+      name: "Peperomia Obtusifolia",
+      image: "/plants/peperomia.jpg",
+      water: "Water every 1-2 weeks",
+      light: "Medium indirect light",
+      temp: "18-26°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Has thick leaves that store water.",
+    },
+    {
+      id: 74,
+      name: "Cast Iron Plant",
+      image: "/plants/cast-iron.jpg",
+      water: "Water every 2-3 weeks",
+      light: "Low light tolerant",
+      temp: "10-24°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Nearly indestructible houseplant.",
+    },
+    {
+      id: 75,
+      name: "Norfolk Island Pine",
+      image: "/plants/norfolk-pine.jpg",
+      water: "Keep soil lightly moist",
+      light: "Bright indirect light",
+      temp: "15-24°C",
+      humidity: "50-60%",
+      difficulty: "Medium",
+      funFact: "Not a true pine tree.",
+    },
+    {
+      id: 76,
+      name: "Prayer Plant",
+      image: "/plants/prayer-plant.jpg",
+      water: "Keep soil moist",
+      light: "Low to medium indirect",
+      temp: "18-26°C",
+      humidity: "60-70%",
+      difficulty: "Hard",
+      funFact: "Leaves fold up at night like praying hands.",
+    },
+    {
+      id: 77,
+      name: "Hoya Carnosa",
+      image: "/plants/hoya.jpg",
+      water: "Water when soil dries",
+      light: "Bright indirect light",
+      temp: "18-27°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Produces fragrant star-shaped flowers.",
+    },
+    {
+      id: 78,
+      name: "Majesty Palm",
+      image: "/plants/majesty-palm.jpg",
+      water: "Water frequently",
+      light: "Bright indirect light",
+      temp: "18-30°C",
+      humidity: "50-70%",
+      difficulty: "Hard",
+      funFact: "Requires high humidity to thrive.",
+    },
+    {
+      id: 79,
+      name: "Lipstick Plant",
+      image: "/plants/lipstick-plant.jpg",
+      water: "Water when soil partially dries",
+      light: "Bright indirect light",
+      temp: "18-30°C",
+      humidity: "50-60%",
+      difficulty: "Medium",
+      funFact: "Named after its bright red flower buds.",
+    },
+    {
+      id: 80,
+      name: "Blue Star Fern",
+      image: "/plants/blue-star-fern.jpg",
+      water: "Keep soil slightly moist",
+      light: "Low to medium indirect",
+      temp: "18-27°C",
+      humidity: "60-80%",
+      difficulty: "Medium",
+      funFact: "Has blue-green fronds with a soft texture.",
+    },
+    {
+      id: 81,
+      name: "Tradescantia Zebrina",
+      image: "/plants/tradescantia.jpg",
+      water: "Water weekly",
+      light: "Bright indirect light",
+      temp: "18-30°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Leaf color intensifies in brighter light.",
+    },
+    {
+      id: 82,
+      name: "Coleus",
+      image: "/plants/coleus.jpg",
+      water: "Keep soil moist",
+      light: "Bright indirect light",
+      temp: "18-30°C",
+      humidity: "50-60%",
+      difficulty: "Easy",
+      funFact: "Grown mainly for colorful foliage.",
+    },
+    {
+      id: 83,
+      name: "Ponytail Palm",
+      image: "/plants/ponytail-palm.jpg",
+      water: "Water every 2-3 weeks",
+      light: "Bright light, some direct sun",
+      temp: "18-30°C",
+      humidity: "30-50%",
+      difficulty: "Easy",
+      funFact: "Stores water in its swollen trunk.",
+    },
+    {
+      id: 84,
+      name: "Begonia Rex",
+      image: "/plants/begonia-rex.jpg",
+      water: "Keep soil lightly moist",
+      light: "Bright indirect light",
+      temp: "18-26°C",
+      humidity: "50-60%",
+      difficulty: "Hard",
+      funFact: "Grown for its dramatic patterned leaves.",
+    },
+    {
+      id: 85,
+      name: "Silver Satin Pothos",
+      image: "/plants/satin-pothos.jpg",
+      water: "Water when soil dries",
+      light: "Medium to bright indirect",
+      temp: "18-27°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Leaves have a silver metallic sheen.",
+    },
+    {
+      id: 86,
+      name: "Button Fern",
+      image: "/plants/button-fern.jpg",
+      water: "Keep soil moist",
+      light: "Indirect light",
+      temp: "16-24°C",
+      humidity: "60-80%",
+      difficulty: "Medium",
+      funFact: "Has small round leaf segments.",
+    },
+    {
+      id: 87,
+      name: "Umbrella Plant",
+      image: "/plants/umbrella-plant.jpg",
+      water: "Water every 1-2 weeks",
+      light: "Bright indirect light",
+      temp: "18-27°C",
+      humidity: "40-60%",
+      difficulty: "Easy",
+      funFact: "Leaves grow in umbrella-like clusters.",
+    },
+    {
+      id: 88,
+      name: "Creeping Fig",
+      image: "/plants/creeping-fig.jpg",
+      water: "Water when soil slightly dries",
+      light: "Bright indirect light",
+      temp: "18-26°C",
+      humidity: "50-60%",
+      difficulty: "Medium",
+      funFact: "Can climb walls with proper support.",
+    },
+    {
+      id: 89,
+      name: "Asparagus Fern",
+      image: "/plants/asparagus-fern.jpg",
+      water: "Keep soil slightly moist",
+      light: "Bright indirect light",
+      temp: "18-27°C",
+      humidity: "50-60%",
+      difficulty: "Medium",
+      funFact: "Not a true fern despite its name.",
+    },
+    {
+      id: 90,
+      name: "Sago Palm",
+      image: "/plants/sago-palm.jpg",
+      water: "Water every 2-3 weeks",
+      light: "Bright indirect to direct",
+      temp: "15-27°C",
+      humidity: "40-60%",
+      difficulty: "Hard",
+      funFact: "Extremely slow-growing but long-lived.",
+    },
   ];
 
-  const filteredPlants = plants.filter((plant) =>
-    plant.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredPlants = plants.filter((plant) => plant.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case "Easy": return "bg-green-500/20 text-green-700 dark:text-green-400";
-      case "Medium": return "bg-yellow-500/20 text-yellow-700 dark:text-yellow-400";
-      case "Hard": return "bg-red-500/20 text-red-700 dark:text-red-400";
-      default: return "bg-muted text-muted-foreground";
+      case "Easy":
+        return "bg-green-500/20 text-green-700 dark:text-green-400";
+      case "Medium":
+        return "bg-yellow-500/20 text-yellow-700 dark:text-yellow-400";
+      case "Hard":
+        return "bg-red-500/20 text-red-700 dark:text-red-400";
+      default:
+        return "bg-muted text-muted-foreground";
     }
   };
 
@@ -153,9 +1085,7 @@ const Guide = () => {
                     <Badge className={`absolute top-3 right-3 ${getDifficultyColor(plant.difficulty)}`}>
                       {plant.difficulty}
                     </Badge>
-                    <h3 className="absolute bottom-4 left-4 text-xl font-bold text-white">
-                      {plant.name}
-                    </h3>
+                    <h3 className="absolute bottom-4 left-4 text-xl font-bold text-white">{plant.name}</h3>
                   </div>
 
                   {/* Plant Info */}
@@ -170,7 +1100,9 @@ const Guide = () => {
                     </div>
                     <div className="flex items-center gap-3 text-sm">
                       <Thermometer className="h-4 w-4 text-status-temp flex-shrink-0" />
-                      <span className="text-muted-foreground">{plant.temp} • {plant.humidity} humidity</span>
+                      <span className="text-muted-foreground">
+                        {plant.temp} • {plant.humidity} humidity
+                      </span>
                     </div>
 
                     {/* Fun Fact */}
@@ -276,32 +1208,50 @@ const Guide = () => {
                 <div className="space-y-4">
                   <h3 className="font-semibold text-primary">Specifications</h3>
                   <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li><span className="font-medium">Operating Voltage:</span> 3.3V ~ 5.5V DC</li>
-                    <li><span className="font-medium">Output Voltage:</span> 0V ~ 3.0V DC</li>
-                    <li><span className="font-medium">Interface:</span> PH2.54-3P</li>
-                    <li><span className="font-medium">Output Type:</span> Analog signal</li>
+                    <li>
+                      <span className="font-medium">Operating Voltage:</span> 3.3V ~ 5.5V DC
+                    </li>
+                    <li>
+                      <span className="font-medium">Output Voltage:</span> 0V ~ 3.0V DC
+                    </li>
+                    <li>
+                      <span className="font-medium">Interface:</span> PH2.54-3P
+                    </li>
+                    <li>
+                      <span className="font-medium">Output Type:</span> Analog signal
+                    </li>
                   </ul>
                 </div>
                 <div className="space-y-4">
                   <h3 className="font-semibold text-primary">Pin Configuration</h3>
                   <div className="space-y-2">
-                    <Badge variant="outline" className="mr-2">AOUT</Badge>
+                    <Badge variant="outline" className="mr-2">
+                      AOUT
+                    </Badge>
                     <span className="text-sm text-muted-foreground">Analog Signal Output</span>
                   </div>
                   <div className="space-y-2">
-                    <Badge variant="outline" className="mr-2">GND</Badge>
+                    <Badge variant="outline" className="mr-2">
+                      GND
+                    </Badge>
                     <span className="text-sm text-muted-foreground">Ground</span>
                   </div>
                   <div className="space-y-2">
-                    <Badge variant="outline" className="mr-2">VCC</Badge>
+                    <Badge variant="outline" className="mr-2">
+                      VCC
+                    </Badge>
                     <span className="text-sm text-muted-foreground">Power (3.3V-5.5V)</span>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <h3 className="font-semibold text-primary">Calibration Values</h3>
                   <div className="bg-muted/50 rounded-lg p-4 text-sm">
-                    <p className="text-muted-foreground"><span className="font-medium">Dry Soil:</span> ~3.0V (high)</p>
-                    <p className="text-muted-foreground"><span className="font-medium">Wet Soil:</span> ~1.0V (low)</p>
+                    <p className="text-muted-foreground">
+                      <span className="font-medium">Dry Soil:</span> ~3.0V (high)
+                    </p>
+                    <p className="text-muted-foreground">
+                      <span className="font-medium">Wet Soil:</span> ~1.0V (low)
+                    </p>
                     <p className="text-muted-foreground mt-2 text-xs">Note: Calibrate based on your soil type</p>
                   </div>
                 </div>
@@ -323,17 +1273,29 @@ const Guide = () => {
                 <div className="space-y-4">
                   <h3 className="font-semibold text-primary">Specifications</h3>
                   <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li><span className="font-medium">Rated Voltage:</span> DC 3V or 4.5V</li>
-                    <li><span className="font-medium">Rated Current:</span> 0.18A (load)</li>
-                    <li><span className="font-medium">Flow Rate:</span> 100L/H (no load)</li>
-                    <li><span className="font-medium">Type:</span> Submersible</li>
+                    <li>
+                      <span className="font-medium">Rated Voltage:</span> DC 3V or 4.5V
+                    </li>
+                    <li>
+                      <span className="font-medium">Rated Current:</span> 0.18A (load)
+                    </li>
+                    <li>
+                      <span className="font-medium">Flow Rate:</span> 100L/H (no load)
+                    </li>
+                    <li>
+                      <span className="font-medium">Type:</span> Submersible
+                    </li>
                   </ul>
                 </div>
                 <div className="space-y-4">
                   <h3 className="font-semibold text-primary">Power Requirements</h3>
                   <div className="bg-muted/50 rounded-lg p-4 text-sm space-y-2">
-                    <p className="text-muted-foreground"><span className="font-medium">Power:</span> ~0.54W - 0.81W</p>
-                    <p className="text-muted-foreground"><span className="font-medium">Driver:</span> Use transistor/relay</p>
+                    <p className="text-muted-foreground">
+                      <span className="font-medium">Power:</span> ~0.54W - 0.81W
+                    </p>
+                    <p className="text-muted-foreground">
+                      <span className="font-medium">Driver:</span> Use transistor/relay
+                    </p>
                     <p className="text-yellow-600 text-xs mt-2">⚠️ Do not connect directly to ESP32 GPIO!</p>
                   </div>
                 </div>
@@ -362,7 +1324,7 @@ const Guide = () => {
               </div>
               <div className="bg-muted/30 rounded-xl p-6">
                 <pre className="text-xs md:text-sm font-mono text-muted-foreground overflow-x-auto">
-{`┌─────────────────────────────────────────────────────────────┐
+                  {`┌─────────────────────────────────────────────────────────────┐
 │                        ESP32 WIRING                         │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
@@ -421,7 +1383,7 @@ const Guide = () => {
               </div>
               <div className="bg-zinc-900 rounded-xl p-6 overflow-x-auto">
                 <pre className="text-xs md:text-sm font-mono text-green-400">
-{`#define MOISTURE_PIN 34    // Analog input for sensor
+                  {`#define MOISTURE_PIN 34    // Analog input for sensor
 #define PUMP_PIN 25        // PWM output for pump
 #define DRY_THRESHOLD 2800 // Adjust based on calibration
 #define WET_THRESHOLD 1200 // Adjust based on calibration
