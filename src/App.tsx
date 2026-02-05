@@ -11,6 +11,7 @@ import Guide from "./pages/Guide";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import LiveMonitor from "./pages/LiveMonitor";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/live-monitor" element={<LiveMonitor />} />
               <Route path="/guide" element={<Guide />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
